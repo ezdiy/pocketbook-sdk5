@@ -382,6 +382,75 @@ extern const char * OBREEY_SOCIAL_COOKIES_PATH;
 #define ISPOINTEREVENT(x) (((x)>=29 && (x)<=31) || ((x)>=34 && (x)<=35) || (x)==44 || (x)==39 || (x)==45)
 #define ISPANELEVENT(x) ((x)>=119 && (x) <= 132)
 
+#undef KEY_UP
+#undef KEY_DOWN
+#undef KEY_LEFT
+#undef KEY_RIGHT
+#undef KEY_OK
+#undef KEY_BACK
+#undef KEY_MENU
+#undef KEY_DELETE
+#undef KEY_MUSIC
+#undef KEY_POWER
+#undef KEY_PREV
+#undef KEY_NEXT
+#undef KEY_MINUS
+#undef KEY_PLUS
+#undef KEY_HOME
+#undef KEY_0
+#undef KEY_1
+#undef KEY_2
+#undef KEY_3
+#undef KEY_4
+#undef KEY_5
+#undef KEY_6
+#undef KEY_7
+#undef KEY_8
+#undef KEY_9
+/* added support for EP34 keys */
+#undef KEY_ZOOMIN
+#undef KEY_ZOOMOUT
+
+#define KEY_POWER  0x01
+#define KEY_DELETE 0x08
+#define KEY_OK     0x0a
+#define KEY_UP     0x11
+#define KEY_DOWN   0x12
+#define KEY_LEFT   0x13
+#define KEY_RIGHT  0x14
+#define KEY_MINUS  0x15
+#define KEY_PLUS   0x16
+#define KEY_MENU   0x17
+#define KEY_PREV   0x18
+#define KEY_NEXT   0x19
+#define KEY_HOME   0x1a
+#define KEY_BACK   0x1b
+#define KEY_PREV2  0x1c
+#define KEY_NEXT2  0x1d
+#define KEY_MUSIC  0x1e
+#define KEY_COVEROPEN	0x02
+#define KEY_COVERCLOSE	0x03
+/* added support for EP34 keys */
+#define KEY_ZOOMOUT 0x06
+#define KEY_ZOOMIN  0x07
+
+/* KEYBOARD STATE KEYS */
+#define KEY_SHIFT 0x0E
+#define KEY_LANGUAGECHANGE 0x0F
+#define KEY_KEYBOARDCLOSE 0x10
+
+#define KEY_0 0x30
+#define KEY_1 0x31
+#define KEY_2 0x32
+#define KEY_3 0x33
+#define KEY_4 0x34
+#define KEY_5 0x35
+#define KEY_6 0x36
+#define KEY_7 0x37
+#define KEY_8 0x38
+#define KEY_9 0x39
+
+
 
 #define IV_KEY_POWER  0x01
 #define IV_KEY_DELETE 0x08
@@ -1962,6 +2031,12 @@ void iv_wait_task_activation(int timeout);
  * when need send Dialog or Message to user on background of currently active task.
  */
 void CopyActiveFb(void);
+
+/* Auto control for frontlight brigthness */
+int hw_is_frontlight_auto_supported(void);
+void hw_set_frontlight_auto_enabled(int enable);
+int hw_is_frontlight_auto(void);
+int hw_get_lux_raw(void);
 
 int GetFrontlightVersion(void);
 
