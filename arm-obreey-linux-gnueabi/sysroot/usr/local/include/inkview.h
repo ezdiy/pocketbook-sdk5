@@ -2052,6 +2052,16 @@ int GetFrontlightState(void);
 void SetFrontlightState(int flstate);
 
 /*
+ * Returns frontlight enabled
+ */
+int GetFrontlightEnabled();
+
+/*
+ * Sets frontlight enabled
+ */
+void SetFrontlightEnabled(int enabled);
+
+/*
  * Sets frontlight state (0-100 - brightness, negative value if off)
  *   temporary for use when about to keylock and this value should not be stored
  */
